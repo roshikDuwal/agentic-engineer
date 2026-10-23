@@ -1,3 +1,4 @@
+using AgenticEngineer.API.Middleware;
 using AgenticEngineer.Application;
 using AgenticEngineer.Persistence;
 
@@ -22,7 +23,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 
 }
-
+app.UseMiddleware<GlobalExceptionMiddleware>();
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
