@@ -1,0 +1,7 @@
+#Docker
+- Docker is the process of packaging the app with its runtime into a image. 
+- three main keyword:
+	Dockerfile: it is the file that contains the code to build the image.
+	Image: builtin package of app with its run it.
+	Container: instance of image.
+
