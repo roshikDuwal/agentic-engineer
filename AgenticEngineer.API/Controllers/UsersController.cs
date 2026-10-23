@@ -1,5 +1,8 @@
 ﻿using AgenticEngineer.API.DTOs;
+using AgenticEngineer.API.RequestDTOs;
+using AgenticEngineer.Application.Features.Users.Commands.DeleteUser;
 using AgenticEngineer.Application.Features.Users.Commands.RegisterUser;
+using AgenticEngineer.Application.Features.Users.Commands.UpdateUser;
 using AgenticEngineer.Application.Features.Users.Queries.GetAllUsers;
 using AgenticEngineer.Application.Features.Users.Queries.GetUserByIdQuery;
 using MediatR;
@@ -51,5 +54,26 @@ namespace AgenticEngineer.API.Controllers
             return Ok(result.Value);
 
         }
+
+        [HttpPut("{id:guid}")]
+        public async Task<IActionResult> UpdateUserAsync(Guid id, [FromBody] UpdateUserRequestDto request)
+        {
+            var command = new UpdateUserCommand(Id: id, request.Name, request.Email);
+            var result = await _mediator.Send(command);
+            if (!result.IsSuccess)
+                return NotFound(result.Error);
+
+            return Ok(result.Value);
+        }
+
+        [HttpDelete("{id:guid}")]
+        public async Task<IActionResult> DeleteUserAsync(Guid id)
+        {
+            var command = new DeleteUserCommand(Id: id);
+            var result=await _mediator.Send(command);
+            if (!result.IsSuccess) return NotFound(result.Error);
+            return Ok(result.Value);
+        }
+
     }
 }

@@ -4,13 +4,13 @@ using System.Text;
 
 namespace AgenticEngineer.Domain.Entities
 {
-    public class  User:BaseEntity
+    public class User : BaseEntity
     {
         public string Name { get; private set; } = "";
         public string Email { get; private set; } = "";
         private User() { }
 
-        protected User(Guid id, string name,string email,DateTime createdAt,DateTime? updatedAt)
+        protected User(Guid id, string name, string email, DateTime createdAt, DateTime? updatedAt)
         {
             Id = id;
             Name = name;
@@ -27,6 +27,13 @@ namespace AgenticEngineer.Domain.Entities
                 Name = name,
                 Email = email
             };
+        }
+
+        public void Update(string name, string email)
+        {
+            Name = name;
+            Email = email;
+            SetUpdatedAt();
         }
 
     }
