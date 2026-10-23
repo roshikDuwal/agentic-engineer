@@ -1,5 +1,6 @@
 ﻿using AgenticEngineer.API.DTOs;
 using AgenticEngineer.Application.Features.Users.Commands.RegisterUser;
+using AgenticEngineer.Application.Features.Users.Queries.GetAllUsers;
 using AgenticEngineer.Application.Features.Users.Queries.GetUserByIdQuery;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -36,6 +37,19 @@ namespace AgenticEngineer.API.Controllers
                 return NotFound(result.Error);
 
             return Ok(result.Value);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllAsync()
+        {
+            var query = new GetAllUsersQuery();
+            var result = await _mediator.Send(query);
+
+            if (!result.IsSuccess)
+                return NotFound(result.Error);
+
+            return Ok(result.Value);
+
         }
     }
 }
