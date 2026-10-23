@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="AgenticEngineer.API/AgenticEngineer.API.csproj" />
+  <Project Path="AgenticEngineer.Application/AgenticEngineer.Application.csproj" />
+  <Project Path="AgenticEngineer.Domain/AgenticEngineer.Domain.csproj" />
+  <Project Path="AgenticEngineer.Infrastructure/AgenticEngineer.Infrastructure.csproj" />
+  <Project Path="AgenticEngineer.Persistence/AgenticEngineer.Persistence.csproj" />
+</Solution>
