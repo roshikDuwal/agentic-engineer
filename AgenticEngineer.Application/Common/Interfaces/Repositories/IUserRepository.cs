@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace AgenticEngineer.Application.Common.Interfaces
+namespace AgenticEngineer.Application.Common.Interfaces.Repositories
 {
     public interface IUserRepository
     {
